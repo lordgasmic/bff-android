@@ -17,6 +17,7 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 @EnableRedisHttpSession
 public class RedisHttpSessionConfiguration {
 
+    // keep as autowired, constructor doesnt work
     @Autowired
     private RedisTemplate redisTemplate;
 
