@@ -1,9 +1,8 @@
-package com.lordgasmic.bff.session;
+package com.lordgasmic.bffandroid.session;
 
-import com.lordgasmic.bff.configuration.LordgasmicConstants;
-import com.lordgasmic.bff.session.model.SessionDetails;
+import com.lordgasmic.bffandroid.configuration.LordgasmicConstants;
+import com.lordgasmic.bffandroid.session.model.SessionDetails;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class SessionManager {
 
-    @Autowired
-    private HttpServletRequest httpServletRequest;
+    private final HttpServletRequest httpServletRequest;
+
+    public SessionManager(HttpServletRequest httpServletRequest) {
+        this.httpServletRequest = httpServletRequest;
+    }
 
     public SessionDetails getSessionDetails() {
         return (SessionDetails) httpServletRequest.getSession().getAttribute(LordgasmicConstants.SESSION_DETAILS_ATTRIBUTE_NAME);

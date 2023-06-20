@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lordgasmic</groupId>
-    <artifactId>bff</artifactId>
+    <artifactId>bffandroid</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -17,8 +17,8 @@
         <!--  lookup parent from repository  -->
     </parent>
 
-    <name>Lordgasmic Bff</name>
-    <description>Lordgasmic Backend for Frontend Application</description>
+    <name>Lordgasmic Bff for Android</name>
+    <description>Lordgasmic Backend for Frontend for Android Application</description>
 
     <properties>
         <swagger-version>2.10.5</swagger-version>

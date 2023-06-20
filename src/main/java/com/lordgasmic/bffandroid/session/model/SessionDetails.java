@@ -1,4 +1,4 @@
-package com.lordgasmic.bff.session.model;
+package com.lordgasmic.bffandroid.session.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

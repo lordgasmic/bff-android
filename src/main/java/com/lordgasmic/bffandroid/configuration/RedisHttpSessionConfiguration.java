@@ -1,6 +1,5 @@
-package com.lordgasmic.bff.configuration;
+package com.lordgasmic.bffandroid.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -17,8 +16,11 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 @EnableRedisHttpSession
 public class RedisHttpSessionConfiguration {
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+    private final RedisTemplate redisTemplate;
+
+    public RedisHttpSessionConfiguration(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @Bean
     public LettuceConnectionFactory connectionFactory() {
@@ -31,14 +33,14 @@ public class RedisHttpSessionConfiguration {
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         final RedisIndexedSessionRepository sessionRepository = new RedisIndexedSessionRepository(redisTemplate);
         sessionRepository.setDefaultMaxInactiveInterval(7200);
-        sessionRepository.setRedisKeyNamespace("webbff");
+        sessionRepository.setRedisKeyNamespace("androidbff");
         return sessionRepository;
     }
 
     @Bean
     public CookieSerializer cookieSerializer() {
         final DefaultCookieSerializer serializer = new DefaultCookieSerializer();
-        serializer.setCookieName("LORDGAMICEWEB");
+        serializer.setCookieName("LORDGAMICANDROID");
         serializer.setDomainName("lordgasmic.com");
         serializer.setUseHttpOnlyCookie(true);
         serializer.setUseSecureCookie(true);

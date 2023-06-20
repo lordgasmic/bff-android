@@ -1,6 +1,6 @@
-package com.lordgasmic.bff;
+package com.lordgasmic.bffandroid;
 
-import com.lordgasmic.bff.configuration.LordgasmicRequestInterceptor;
+import com.lordgasmic.bffandroid.configuration.LordgasmicRequestInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,12 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @EnableFeignClients
-public class BffApplication {
-    private static final Logger logger = LoggerFactory.getLogger(BffApplication.class);
+public class BffAndroidApplication {
+    private static final Logger logger = LoggerFactory.getLogger(BffAndroidApplication.class);
 
     public static void main(final String[] args) {
 
-        SpringApplication.run(BffApplication.class, args);
+        SpringApplication.run(BffAndroidApplication.class, args);
     }
 
     @Bean

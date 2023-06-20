@@ -1,7 +1,7 @@
-package com.lordgasmic.bff.login;
+package com.lordgasmic.bffandroid.login;
 
-import com.lordgasmic.bff.login.model.LoginRequest;
-import com.lordgasmic.bff.login.model.LoginResponse;
+import com.lordgasmic.bffandroid.login.model.LoginRequest;
+import com.lordgasmic.bffandroid.login.model.LoginResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

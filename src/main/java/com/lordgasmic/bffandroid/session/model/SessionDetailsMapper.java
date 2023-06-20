@@ -1,6 +1,6 @@
-package com.lordgasmic.bff.session.model;
+package com.lordgasmic.bffandroid.session.model;
 
-import com.lordgasmic.bff.login.model.LoginResponse;
+import com.lordgasmic.bffandroid.login.model.LoginResponse;
 
 public class SessionDetailsMapper {
     public static SessionDetails fromLoginResponse(final LoginResponse response) {

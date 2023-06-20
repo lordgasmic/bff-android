@@ -1,8 +1,8 @@
-package com.lordgasmic.bff.configuration;
+package com.lordgasmic.bffandroid.configuration;
 
-import com.lordgasmic.bff.login.model.Role;
-import com.lordgasmic.bff.session.SessionManager;
-import com.lordgasmic.bff.session.model.SessionDetails;
+import com.lordgasmic.bffandroid.login.model.Role;
+import com.lordgasmic.bffandroid.session.SessionManager;
+import com.lordgasmic.bffandroid.session.model.SessionDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

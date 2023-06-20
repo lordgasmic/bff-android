@@ -1,6 +1,6 @@
-package com.lordgasmic.bff.configuration.errorhandling;
+package com.lordgasmic.bffandroid.configuration.errorhandling;
 
-import com.lordgasmic.bff.configuration.errorhandling.model.DerpException;
+import com.lordgasmic.bffandroid.configuration.errorhandling.model.DerpException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

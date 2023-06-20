@@ -1,4 +1,4 @@
-package com.lordgasmic.bff.login.model;
+package com.lordgasmic.bffandroid.login.model;
 
 import lombok.AllArgsConstructor;
 

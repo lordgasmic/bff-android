@@ -1,10 +1,10 @@
-package com.lordgasmic.bff.login;
+package com.lordgasmic.bffandroid.login;
 
-import com.lordgasmic.bff.login.model.LoginRequest;
-import com.lordgasmic.bff.login.model.LoginResponse;
-import com.lordgasmic.bff.session.SessionManager;
-import com.lordgasmic.bff.session.model.SessionDetails;
-import com.lordgasmic.bff.session.model.SessionDetailsMapper;
+import com.lordgasmic.bffandroid.login.model.LoginRequest;
+import com.lordgasmic.bffandroid.login.model.LoginResponse;
+import com.lordgasmic.bffandroid.session.SessionManager;
+import com.lordgasmic.bffandroid.session.model.SessionDetails;
+import com.lordgasmic.bffandroid.session.model.SessionDetailsMapper;
 import org.springframework.stereotype.Service;
 
 @Service

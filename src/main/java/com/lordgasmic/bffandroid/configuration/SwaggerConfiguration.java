@@ -1,4 +1,4 @@
-package com.lordgasmic.bff.configuration;
+package com.lordgasmic.bffandroid.configuration;
 
 import lombok.Generated;
 import org.springframework.context.annotation.Bean;

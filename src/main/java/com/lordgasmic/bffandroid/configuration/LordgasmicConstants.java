@@ -1,4 +1,4 @@
-package com.lordgasmic.bff.configuration;
+package com.lordgasmic.bffandroid.configuration;
 
 public final class LordgasmicConstants {
 
