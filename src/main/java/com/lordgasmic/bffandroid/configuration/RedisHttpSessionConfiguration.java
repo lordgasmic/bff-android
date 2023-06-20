@@ -1,5 +1,6 @@
 package com.lordgasmic.bffandroid.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -16,11 +17,8 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 @EnableRedisHttpSession
 public class RedisHttpSessionConfiguration {
 
-    private final RedisTemplate redisTemplate;
-
-    public RedisHttpSessionConfiguration(RedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Bean
     public LettuceConnectionFactory connectionFactory() {
