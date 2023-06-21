@@ -15,7 +15,7 @@ public class SpringConfig {
         this.sessionManager = sessionManager;
     }
 
-    @Scheduled(cron = "@hourly")
+    @Scheduled(cron = "0 * * * * *")
     public void cleanUpSessions() {
         sessionManager.cleanUpSessions();
     }
