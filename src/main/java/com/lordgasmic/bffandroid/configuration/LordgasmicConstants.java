@@ -8,4 +8,6 @@ public final class LordgasmicConstants {
 
     // Session attribute names
     public static final String SESSION_DETAILS_ATTRIBUTE_NAME = "sessionDetails";
+
+    public static final int BOOK_BU_JO_ROLE = 128;
 }

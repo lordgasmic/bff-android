@@ -10,6 +10,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static com.lordgasmic.bffandroid.configuration.LordgasmicConstants.BOOK_BU_JO_ROLE;
+
 @Slf4j
 public class LordgasmicRequestInterceptor extends HandlerInterceptorAdapter {
 
@@ -36,6 +38,12 @@ public class LordgasmicRequestInterceptor extends HandlerInterceptorAdapter {
             return false;
         }
         log.info("session details {}", details);
+
+        if (request.getServletPath().contains("bookbujo") && (BOOK_BU_JO_ROLE & details.getRoles()) != BOOK_BU_JO_ROLE) {
+            response.setStatus(403);
+            return false;
+        }
         return details.getUsername() != null && Role.hasRole(Role.user, details.getRoles());
+
     }
 }
