@@ -14,4 +14,5 @@ import java.io.Serializable;
 public class SessionDetails implements Serializable {
     private String username;
     private int roles;
+    private String authToken;
 }

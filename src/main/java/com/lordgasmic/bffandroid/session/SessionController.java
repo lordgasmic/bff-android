@@ -2,7 +2,9 @@ package com.lordgasmic.bffandroid.session;
 
 import com.lordgasmic.bffandroid.session.model.SessionDetails;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -16,7 +18,7 @@ public class SessionController {
     }
 
     @GetMapping("/api/v1/session")
-    public SessionDetails getSessionInfo() {
-        return sessionManager.getSessionDetails();
+    public SessionDetails getSessionInfo(@RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader) {
+        return sessionManager.getSessionDetails(authHeader);
     }
 }

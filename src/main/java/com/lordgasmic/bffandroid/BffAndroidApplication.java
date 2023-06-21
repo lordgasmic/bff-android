@@ -16,7 +16,6 @@ public class BffAndroidApplication {
     private static final Logger logger = LoggerFactory.getLogger(BffAndroidApplication.class);
 
     public static void main(final String[] args) {
-
         SpringApplication.run(BffAndroidApplication.class, args);
     }
 

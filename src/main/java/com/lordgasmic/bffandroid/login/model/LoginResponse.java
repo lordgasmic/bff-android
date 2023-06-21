@@ -8,4 +8,5 @@ public class LoginResponse {
     private int roles;
     private boolean enabled;
     private boolean credentialsValid;
+    private String authToken;
 }

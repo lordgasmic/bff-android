@@ -1,39 +1,43 @@
 package com.lordgasmic.bffandroid.session;
 
-import com.lordgasmic.bffandroid.configuration.LordgasmicConstants;
 import com.lordgasmic.bffandroid.session.model.SessionDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 @Slf4j
 @Component
 public class SessionManager {
 
-    private final HttpServletRequest httpServletRequest;
-
-    public SessionManager(HttpServletRequest httpServletRequest) {
-        this.httpServletRequest = httpServletRequest;
-    }
-
-    public SessionDetails getSessionDetails() {
-        return (SessionDetails) httpServletRequest.getSession().getAttribute(LordgasmicConstants.SESSION_DETAILS_ATTRIBUTE_NAME);
-    }
+    private static final Map<String, SessionDetails> stateMachine = new HashMap<>();
+    private static final Map<String, Long> cacheMachine = new HashMap<>();
 
     public void handleLogin(final SessionDetails sessionDetails) {
-        httpServletRequest.getSession().invalidate();
-        httpServletRequest.getSession(true);
-        httpServletRequest.getSession().setAttribute(LordgasmicConstants.SESSION_DETAILS_ATTRIBUTE_NAME, sessionDetails);
+        stateMachine.put(sessionDetails.getAuthToken(), sessionDetails);
+        cacheMachine.put(sessionDetails.getAuthToken(), System.currentTimeMillis());
     }
 
-    public void handleLogout() {
-        httpServletRequest.getSession().removeAttribute(LordgasmicConstants.SESSION_DETAILS_ATTRIBUTE_NAME);
-        httpServletRequest.getSession().invalidate();
-        httpServletRequest.getSession(true);
+    public void handleLogout(SessionDetails sessionDetails) {
+        stateMachine.remove(sessionDetails.getAuthToken());
+        cacheMachine.remove(sessionDetails.getAuthToken());
     }
 
-    public void save(final int id) {
-        httpServletRequest.getSession().setAttribute("derp", "derp-true:" + id);
+    public SessionDetails getSessionDetails(String authHeader) {
+        return stateMachine.get(authHeader);
+    }
+
+    public void cleanUpSessions() {
+        Iterator<Map.Entry<String, Long>> it;
+        it = cacheMachine.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, Long> entry = it.next();
+            if (System.currentTimeMillis() - entry.getValue() > 3_600_000) {
+                stateMachine.remove(entry.getKey());
+                cacheMachine.remove(entry.getKey());
+            }
+        }
     }
 }
