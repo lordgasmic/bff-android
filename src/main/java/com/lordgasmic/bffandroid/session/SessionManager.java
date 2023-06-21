@@ -4,16 +4,16 @@ import com.lordgasmic.bffandroid.session.model.SessionDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 @Component
 public class SessionManager {
 
-    private static final Map<String, SessionDetails> stateMachine = new HashMap<>();
-    private static final Map<String, Long> cacheMachine = new HashMap<>();
+    private static final Map<String, SessionDetails> stateMachine = new ConcurrentHashMap<>();
+    private static final Map<String, Long> cacheMachine = new ConcurrentHashMap<>();
 
     public void handleLogin(final SessionDetails sessionDetails) {
         stateMachine.put(sessionDetails.getAuthToken(), sessionDetails);
